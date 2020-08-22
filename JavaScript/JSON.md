@@ -1,0 +1,45 @@
+# JSON
+
+## JSON 개념
+
+## 메소드
+### <strong> ```JSON.stringify(value[, replacer[, space]]) ```</strong> 
+- 객체를 JSON 문자열로 바꿔준다.
+- 함수 프로퍼티, 심볼형 프로퍼티(심볼을 키로 가지는 프로퍼티), 값이 undefined인 프로퍼티는 stringfy 메소드로 처리할 수 없다.
+- value: JSON 문자열로 변환할 객체
+- replacer: 변환하고 싶은 프로퍼티를 선택하기 위한 배열 또는 함수
+##### <배열>
+```
+let user = {
+  name: 'blabla',
+  age: '26',
+  comeFrom: { country: 'Canada', city: 'Toronto' }
+}
+
+console.log(JSON.stringify(user, ['name', 'age'])); 
+// {"name":"blabla","age":"26"}
+
+console.log(JSON.stringify(user, ['name', 'age', 'comeFrom'])); 
+// {"name":"blabla","age":"26","comeFrom":{}}
+
+console.log(JSON.stringify(user, ['name', 'age', 'comeFrom', 'country', 'city'])); 
+// {"name":"blabla","age":"26","comeFrom":{"country":"Canada","city":"Toronto"}}
+```
+##### <함수> 
+<p>
+key, value를 매개변수로 받는다. <br>
+JSON 문자열에 추가되어야 하는 값을 반환해야한다.
+</p>
+
+```
+function replacer(key, value) {
+    if (typeof value !== "string") {
+        return value;
+    }
+    return undefined;
+}
+
+console.log(JSON.stringify(user, replacer)); // {"age":26,"comeFrom":{}}
+```
+### <strong> ```JSON.parse(text[, reviver]) ```</strong>
+- dfss
