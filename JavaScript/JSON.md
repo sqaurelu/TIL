@@ -1,7 +1,5 @@
 # JSON
 
-## JSON 개념
-
 ## 메소드
 ### <strong> ```JSON.stringify(value[, replacer[, space]]) ```</strong> 
 - 객체를 JSON 문자열로 바꿔준다.
@@ -60,3 +58,10 @@ console.log(JSON.parse(user, (key, value) => {
     return value; 
 }))
 ```
+
+## reference 
+[모던 JavaScript 튜토리얼](https://ko.javascript.info/json)
+
+[MDN JSON.stringfy()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+
+[MDN JSON.parse()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
